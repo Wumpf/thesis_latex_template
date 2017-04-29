@@ -2,7 +2,7 @@
 
 Due to popular request, I stripped down my [master's thesis](https://github.com/wumpf/masterthesis) into this template. I left the general structure (which might not be applicable for your work at all!) and a few of the trickier things in.
 
-This is meant as a shortcut for any student who isn't quite sure how to get started. Obviously you will need to change the structure & style to whatever your needs are and your superviser asks from you.
+This is meant as a shortcut for any student who isn't quite sure how to get started. Obviously you will need to change the structure & style to whatever your needs are and your supervisor asks from you.
 
 ## Notes on Usage
 
@@ -24,12 +24,12 @@ To organize the [bibliography](latex/bibliography.bib) I used [JabRef](http://ww
 ## Q & A
 
 ### What is glsl.tex?
-A language highlighting defintion for glsl code blocks. Left it in there because I thought you might need it or at least could use an example for custom language definition.
+A language highlighting definition for glsl code blocks. Left it in there because I thought you might need it or at least could use an example for custom language definition.
 
 ### Why \subfile and not XY?
-\subfile has the amazing advantage that you can compile parts of the thesis indepdently. Once you get more images in this increases your iteration time tremendously!
+\subfile has the amazing advantage that you can compile parts of the thesis interpedently. Once you get more images in this increases your iteration time tremendously!
 
 ## Licensing
-It's public domain, so do what you want with it! Of couse I'd be happy if you give my github repository a star or even mention me in the aknowledgements ;-)
+It's public domain, so do what you want with it! Of course I'd be happy if you give my github repository a star or even mention me in the acknowledgements ;-)
 
 ![Public Domain Logo](https://licensebuttons.net/p/zero/1.0/88x31.png)
