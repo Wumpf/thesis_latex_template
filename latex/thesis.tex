@@ -1,0 +1,136 @@
+\documentclass[fontsize=12pt, paper=a4, headinclude, twoside=false, parskip=half+, pagesize=auto, numbers=noenddot, headsepline, footsepline, open=right, toc=listof, toc=bibliography]{scrreprt}
+
+% font encoding
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Style, math graphics
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage[labelfont=bf]{caption} % font=small,  ?
+\usepackage{acronym}
+\usepackage{amsmath}
+\usepackage{marvosym}
+\usepackage[pdftex]{graphicx}
+\usepackage[table]{xcolor} % table argument allows color cells
+\usepackage{luximono}
+\usepackage{geometry}
+
+% Landscape pages
+\usepackage{lscape}
+
+% Standard unity
+\usepackage[binary-units=true]{siunitx}
+
+% table stuff
+\usepackage{multirow}	% Multirow in tables
+\usepackage{booktabs}	% Special lines in tables
+\usepackage{diagbox}	% Box with diagonal in tables
+\usepackage{makecell}	% Multiline cells and more
+
+% Caption setup.
+\captionsetup{margin=0pt}
+\captionsetup{labelfont=bf}
+
+% Text floating around figure
+\usepackage{wrapfig}
+% Subfigures
+\usepackage{subcaption}
+
+% Easy use of list (alternative to itemize)
+\usepackage[sharp]{easylist}
+
+% Links/URLs in proper colors
+\usepackage{hyperref}
+\definecolor{dark-red}{rgb}{0.4,0.15,0.15}
+\definecolor{dark-blue}{rgb}{0.15,0.15,0.4}
+\definecolor{medium-blue}{rgb}{0,0,0.6}
+\hypersetup{
+    colorlinks, linkcolor={dark-red},
+    citecolor={dark-blue}, urlcolor={medium-blue}
+}
+\urlstyle{same}	% Use same font for urls as for everything else
+
+% Redfine some autoref macros for proper caseing.
+\renewcommand*{\chapterautorefname}{Chapter}
+\renewcommand*{\sectionautorefname}{Section}
+\renewcommand*{\subsectionautorefname}{Subsection}
+\renewcommand*{\subsubsectionautorefname}{Subsubsection}
+
+% Citeing
+\usepackage[numbers]{natbib}
+
+% Use subfiles instead of includes
+\usepackage{subfiles}
+
+\definecolor{darkgreen}{rgb}{0.1,0.7,0.2}
+\definecolor{backgray}{rgb}{0.8,0.8,0.8}
+
+% C/C++ programming languages
+%\lstloadlanguages{C,C++}
+
+% GLSL programming language
+\usepackage{listings}
+\input{glsl.tex}
+
+% Formatting for datasets.
+\newcommand{\dataset}[1]{\textsc{#1}}
+
+% paper format
+\geometry{a4paper,left=30mm,right=20mm, top=2cm, bottom=3cm} 
+
+% todo note command
+\usepackage[disable]{todonotes} % DISABLED
+
+% Shorthand for including bibliography information to subfiles. This way each subfile will have access to the bibliography
+\def\subfilebib{\bibliographystyle{alphaurl}\bibliography{bibliography}}
+
+% Where all graphics to be found
+\graphicspath{ {../pictures/} }
+\DeclareGraphicsExtensions{.png,.jpg}
+
+% Easy insertion of pdf_tex
+\newcommand\includepdftex[1] { \input{../pictures/#1.pdf_tex} }
+% Image size for half page
+\newcommand{\halfpageimage}{0.496\textwidth}
+
+\begin{document}
+
+% Undef subfilebib for main file, so there is only one bibliography when compiling the whole thesis.
+\def\subfilebib{}
+
+\subfile{Title}
+\setcounter{page}{1} % Ignore titel page in numbering.
+
+% TOC
+\subfile{TOC}
+
+\subfile{Acknowledgements}
+\subfile{Abstract}
+
+\subfile{Notation}
+
+% The Thesis itself
+\subfile{Introduction}
+\subfile{Prerequisites}
+\subfile{RelatedWork}
+\subfile{Main}
+\subfile{Evaluation}
+\subfile{Conclusion}
+
+\appendix
+\chapter*{Appendices}
+\addcontentsline{toc}{chapter}{Appendices}
+\renewcommand{\thesection}{\Alph{section}.}
+\renewcommand{\thesubsection}{\Alph{section}.\arabic{subsection}}
+\subfile{appendix-formulas}
+
+\bibliographystyle{alphaurl}
+\bibliography{bibliography}
+
+\subfile{StatementOfAuthorship}
+
+% List of figures. Quite useless I think atm, but maybe I'll come back to it. Note that currently there are no short captions - it is possible to define both short and long captions.
+%\listoffigures
+
+\end{document}

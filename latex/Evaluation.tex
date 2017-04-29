@@ -1,0 +1,59 @@
+\documentclass[thesis.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Evaluation}\label{chap:eva}
+
+I just realized how generic my intro text here was (this is a really bad thing!), so I kept it for your benefit ;-)
+
+This chapter will evaluate the proposed algorithms both from a performance and a quality perspective.
+In the last section we try to compare our technique to related works.
+However, as we were not able to implement comparable implementations within the limits of this project, we can only provide comparisons on an abstract level.
+
+\section{Examples!} \label{sec:eva:examples}
+Easy list!
+
+\begin{easylist}
+\ListProperties(Hide=100, Hang=true, Progressive=4ex, Space=0.0ex, Space3=-0.5ex, Space*=-0.5ex, Style*=$\bullet\,$,
+Style2*=$\circ$ ,Style3*=$\circ$ )
+# Easy list
+## very simple
+## quick
+### yes indeed
+# trival to maintain
+\end{easylist}
+
+A centered table :-O
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lrr}
+\toprule
+RSM & Flux + Depth + Normal & \SI{22.6}{\mebi\byte} \\
+\hspace{0.5cm} \emph{Flux}   & $1024^2 \cdot \SI{6}{\byte} + \mathrm{mipmaps}$ & \textit{8.0\,MiB}\\ %\textit{\SI{8.0}{\mebi\byte}} \\
+\hspace{0.5cm} \emph{Normal} & $1024^2 \cdot \SI{4}{\byte} + \mathrm{mipmaps}$ & \textit{5.3\,MiB}\\ %\textit{\SI{5.3}{\mebi\byte}} \\
+\hspace{0.5cm} \emph{Depth + Depth}$^2$  & $1024^2 \cdot \SI{4}{\byte} + \mathrm{mipmaps}$ & \textit{5.0\,MiB}\\ %\SI{5.3}{\mebi\byte} \\
+\hspace{0.5cm} \emph{Depth/Shadow Map}  & $1024^2 \cdot \SI{4}{\byte}$ & \textit{4.0\,MiB}\\ %\SI{4}{\mebi\byte} \\
+\midrule
+CAV   & $4\times 32^3 \cdot \SI{4}{\byte}$ & \SI{0.5}{\mebi\byte} \\
+\midrule
+Voxel Volume & $128^3 \cdot \SI{1}{\byte} + \mathrm{mipmaps}$ & \SI{2.3}{\mebi\byte} \\
+\midrule
+Cache Buffer & $32768\times\mathrm{cache}$ & \SI{2.5}{\mebi\byte} \\
+\hspace{0.5cm} \emph{Position (+ padding)} & $4 \cdot \SI{4}{\byte}$ & \textit{16\,B}\\ %\SI{16}{\byte} \\
+\hspace{0.5cm} \emph{2 Band SH (3 colors)} & $16 \cdot \SI{4}{\byte}$ & \textit{64\,B}\\ %\SI{64}{\byte} \\
+\midrule
+SpecEnvMap &  $32768\times 16^2 \cdot \SI{4}{\byte}$ & \SI{32.0}{\mebi\byte} \\
+\midrule
+\midrule
+\textbf{Overall} &       & \textbf{59.9\,MiB}\\ %\SI{59.9}{\mebi\byte} \\
+\bottomrule
+\end{tabular}
+\caption{Memory consumption break-down of the default configuration with a maximum of about 32k caches.}
+\label{tab:memory}
+\end{table}
+
+An autoref \autoref{tab:memory} to the table.
+
+\subfilebib % Makes bibliography available when compiling as subfile
+\end{document}
